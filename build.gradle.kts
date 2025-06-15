@@ -36,6 +36,17 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    // JUnit 5
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
+
+    // Mockito
+    testImplementation("org.mockito:mockito-core:4.8.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:4.8.0")
+
+    // AssertJ
+    testImplementation("org.assertj:assertj-core:3.23.1")
 }
 
 tasks.withType<JavaCompile> {
@@ -44,4 +55,8 @@ tasks.withType<JavaCompile> {
 
 configurations {
     getByName("runtimeClasspath").extendsFrom(configurations.getByName("developmentOnly"))
+}
+
+tasks.test {
+    useJUnitPlatform()
 }

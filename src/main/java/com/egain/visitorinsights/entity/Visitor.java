@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "visitors")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Builder
 public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
